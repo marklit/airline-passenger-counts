@@ -1,0 +1,8 @@
+*.dat
+*.pyc
+*.gz
+*.json
+*.bz2
+*.png
+*.svg
+*.html

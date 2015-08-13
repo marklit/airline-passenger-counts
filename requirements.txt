@@ -1,0 +1,11 @@
+beautifulsoup4
+creole
+docopt
+html5lib
+LatLon
+lxml
+ratelim
+redis
+requests[security]
+sh
+unidecode
