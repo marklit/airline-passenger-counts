@@ -5,7 +5,7 @@ Commercial Airline Passenger Numbers Tool
 
 Usage:
     ./app.py get_wikipedia_content <output_file>
-    ./app.py pluk_airport_meta_data <input_file> <output_file> [--start=<line>]
+    ./app.py pluck_airport_meta_data <input_file> <output_file> [--start=<line>]
     ./app.py test
     ./app.py (-h | --help)
 
@@ -312,7 +312,7 @@ def get_lat_long(airport_metrics):
         return None
 
 
-def pluk_airport_meta_data(in_file, out_file, start_on_line=1):
+def pluck_airport_meta_data(in_file, out_file, start_on_line=1):
     with codecs.open(in_file, 'r+b', 'utf8') as f:
         wikipedia_pages = [json.loads(line)
                            for line in f.read().strip().split('\n')]
@@ -440,7 +440,7 @@ def get_parser(filename):
                 element.clear()
 
 
-def pluk_wikipedia_titles_text(pattern='enwiki-*-pages-articles*.xml-*.bz2',
+def pluck_wikipedia_titles_text(pattern='enwiki-*-pages-articles*.xml-*.bz2',
                                out_file='airport_markdown.json'):
     with codecs.open(out_file, 'a+b', 'utf8') as out_file:
         for bz2_filename in sorted(glob(pattern),
@@ -472,13 +472,13 @@ def main(argv):
         return
 
     if opt['get_wikipedia_content']:
-        pluk_wikipedia_titles_text(out_file=opt['<output_file>'])
+        pluck_wikipedia_titles_text(out_file=opt['<output_file>'])
         return
 
-    if opt['pluk_airport_meta_data']:
-        pluk_airport_meta_data(in_file=opt['<input_file>'],
-                               out_file=opt['<output_file>'],
-                               start_on_line=int(opt['--start']))
+    if opt['pluck_airport_meta_data']:
+        pluck_airport_meta_data(in_file=opt['<input_file>'],
+                                out_file=opt['<output_file>'],
+                                start_on_line=int(opt['--start']))
         return
 
 

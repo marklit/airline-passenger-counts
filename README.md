@@ -65,7 +65,7 @@ $ python app.py get_wikipedia_content title_article_extract.json
 Pluck meta data from the articles into a passenger statistics file:
 
 ```bash
-$ python app.py pluk_airport_meta_data title_article_extract.json stats.json
+$ python app.py pluck_airport_meta_data title_article_extract.json stats.json
 ```
 
 Plot the passenger statistics:
